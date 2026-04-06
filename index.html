@@ -6,156 +6,68 @@
 <title>Pro Gaming Store</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #000;
-    color: white;
-}
+body { background:#000; color:white; font-family:Arial; margin:0; }
+h1 { color:#00ff00; text-align:center; }
 
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    background: #0a0a0a;
-}
-.logo {
-    color: #00ff00;
-    font-weight: bold;
-}
-nav a {
-    color: #00ff00;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-/* HEADER */
-header {
-    text-align: center;
-    padding: 30px;
-}
-header h1 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-}
-
-/* PRODUCTS */
 .products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 .product {
-    width: 260px;
-    margin: 15px;
-    padding: 15px;
-    background: #111;
-    border: 1px solid #00ff00;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.3s;
+    background:#111;
+    border:1px solid #00ff00;
+    margin:15px;
+    padding:15px;
+    width:260px;
+    text-align:center;
 }
-.product:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00ff00;
-}
-.product img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.product h3 {
-    color: #00ff00;
-}
+.product img { width:100%; height:180px; object-fit:cover; }
 
-/* BUTTON */
 .btn {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    background: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    display:block;
+    margin:10px;
+    padding:10px;
+    text-decoration:none;
+    color:white;
 }
-.btn:hover {
-    background: darkred;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-    .product { width: 90%; }
-}
+.cart { background:green; }
+.buy { background:red; }
 </style>
 
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">🎮 Pro Gaming</div>
-    <div>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Contact</a>
-    </div>
-</nav>
+<h1>🎮 Welcome to Pro Gaming Store</h1>
 
-<header>
-    <h1>🎮 Welcome to Pro Gaming Store</h1>
-    <p>Best Gaming Accessories in Pakistan 🔥</p>
-</header>
+<div class="products">
 
-<section class="products">
-
-<!-- MOUSE -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
 <h3>Gaming Mouse</h3>
 <p>Rs. 3000</p>
-<a class="btn" href="https://wa.me/923000000000?text=I want Gaming Mouse (Rs.3000)">Buy on WhatsApp</a>
+<a class="btn cart" href="checkout.html?product=Gaming Mouse&price=3000">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Mouse">Buy Now</a>
 </div>
 
-<!-- RGB KEYBOARD (UPGRADED IMAGE) -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1595225476474-87563907a212">
-<h3>RGB Gaming Keyboard</h3>
+<h3>RGB Keyboard</h3>
 <p>Rs. 6500</p>
-<a class="btn" href="https://wa.me/923000000000?text=I want RGB Gaming Keyboard (Rs.6500)">Buy on WhatsApp</a>
+<a class="btn cart" href="checkout.html?product=Keyboard&price=6500">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Keyboard">Buy Now</a>
 </div>
 
-<!-- HEADSET (FIXED IMAGE) -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1612444530582-fc66183b16f7">
 <h3>Gaming Headset</h3>
 <p>Rs. 4500</p>
-<a class="btn" href="https://wa.me/923000000000?text=I want Gaming Headset (Rs.4500)">Buy on WhatsApp</a>
+<a class="btn cart" href="checkout.html?product=Headset&price=4500">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Headset">Buy Now</a>
 </div>
 
-<!-- CONTROLLER -->
-<div class="product">
-<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db">
-<h3>Game Controller</h3>
-<p>Rs. 7000</p>
-<a class="btn" href="https://wa.me/923000000000?text=I want Game Controller (Rs.7000)">Buy on WhatsApp</a>
 </div>
-
-<!-- MOUSEPAD -->
-<div class="product">
-<img src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366">
-<h3>Gaming Mousepad</h3>
-<p>Rs. 1500</p>
-<a class="btn" href="https://wa.me/923000000000?text=I want Gaming Mousepad (Rs.1500)">Buy on WhatsApp</a>
-</div>
-
-</section>
-
-<footer style="text-align:center; padding:20px;">
-<p>📞 WhatsApp: 0300-0000000</p>
-<p>© 2026 Pro Gaming Store</p>
-</footer>
 
 </body>
 </html>
