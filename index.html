@@ -1,18 +1,57 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
-    <title>My First Website</title>
+    <title>Gaming Store</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #0d0d0d;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            color: #00ffcc;
+        }
+        .item {
+            border: 1px solid #00ffcc;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #00ffcc;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body style="text-align:center; font-family:Arial;">
+<body>
 
-    <h1>Hello 👋</h1>
-    <p>This is my first website!</p>
+    <h1>🖥️ Gaming Accessories Store</h1>
+    <p>Buy Gaming Mouse, Keyboard & PCs!</p>
 
-    <button onclick="sayHello()">Click Me</button>
+    <div class="item">
+        <h2>Gaming Mouse</h2>
+        <p>Price: $15</p>
+        <button onclick="buyItem('Gaming Mouse')">Buy</button>
+    </div>
+
+    <div class="item">
+        <h2>Gaming Keyboard</h2>
+        <p>Price: $25</p>
+        <button onclick="buyItem('Gaming Keyboard')">Buy</button>
+    </div>
+
+    <div class="item">
+        <h2>Gaming PC</h2>
+        <p>Price: $500</p>
+        <button onclick="buyItem('Gaming PC')">Buy</button>
+    </div>
 
     <script>
-        function sayHello() {
-            alert("Hello! You clicked the button 🎉");
+        function buyItem(itemName) {
+            alert("You selected " + itemName + " 🎉");
         }
     </script>
 
