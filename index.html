@@ -1,59 +1,155 @@
-<<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Gaming Store</title>
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #0d0d0d;
-            color: white;
-            text-align: center;
-        }
-        h1 {
-            color: #00ffcc;
-        }
-        .item {
-            border: 1px solid #00ffcc;
-            margin: 20px;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        button {
-            padding: 10px;
-            background-color: #00ffcc;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Store</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #00ff00;
+    font-size: 2.2em;
+}
+
+header p {
+    color: #ccc;
+    font-size: 1em;
+}
+
+/* Product Section */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.product {
+    background-color: #111;
+    border: 1px solid #00ff00;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    width: 280px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h2 {
+    color: #00ff00;
+    font-size: 1.4em;
+}
+
+.price {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* WhatsApp Button */
+.btn {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    .product {
+        width: 90%;
+    }
+}
+</style>
+
 </head>
+
 <body>
 
-    <h1>🖥️ Gaming Accessories Store</h1>
-    <p>Buy Gaming Mouse, Keyboard & PCs!</p>
+<header>
+    <h1>🎮 Welcome to My Gaming Store 🎮</h1>
+    <p>Best gaming accessories in Pakistan 🇵🇰</p>
+</header>
 
-    <div class="item">
+<section class="products">
+
+    <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Gaming Mouse">
         <h2>Gaming Mouse</h2>
-        <p>Price: $15</p>
-        <button onclick="buyItem('Gaming Mouse')">Buy</button>
+        <div class="price">Rs. 3,000</div>
+        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
     </div>
 
-    <div class="item">
+    <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Gaming Keyboard">
         <h2>Gaming Keyboard</h2>
-        <p>Price: $25</p>
-        <button onclick="buyItem('Gaming Keyboard')">Buy</button>
+        <div class="price">Rs. 5,000</div>
+        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
     </div>
 
-    <div class="item">
+    <div class="product">
+        <img src="https://via.placeholder.com/300x200" alt="Gaming PC">
         <h2>Gaming PC</h2>
-        <p>Price: $500</p>
-        <button onclick="buyItem('Gaming PC')">Buy</button>
+        <div class="price">Rs. 120,000</div>
+        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
     </div>
 
-    <script>
-        function buyItem(itemName) {
-            alert("You selected " + itemName + " 🎉");
-        }
-    </script>
+</section>
 
 </body>
 </html>
+📱 What You Got
+
+✅ Black gaming background
+✅ Green heading 🎮
+✅ Pakistan description 🇵🇰
+✅ 3 products (Mouse, Keyboard, PC)
+✅ Red Buy on WhatsApp button
+✅ Mobile friendly 📱
+
+⚠️ IMPORTANT (Change This)
+
+Replace this:
+
+https://wa.me/923000000000
+
+👉 Put your real WhatsApp number like:
+
+https://wa.me/923XXXXXXXXX
+🚀 Upload Reminder (Very Short)
+Go to GitHub
+Create repo → gaming-store
+Upload index.html
+Settings → Pages → Enable
+🔥 Want Upgrade?
+
+I can make it:
+
+With real gaming images 🎮
+Add logo + navbar 🧭
+Add more products 🛒
+Make it look like a real store 💯
+
+Just say “make it pro” 😎
