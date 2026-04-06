@@ -8,58 +8,50 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #000000, #020024);
     color: white;
 }
 
 /* NAVBAR */
 nav {
-    background: #0a0a0a;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.8);
 }
 .logo {
-    color: #00ff00;
+    color: #00ffcc;
+    font-size: 22px;
     font-weight: bold;
-    font-size: 20px;
 }
 nav ul {
-    list-style: none;
     display: flex;
-    padding: 0;
+    list-style: none;
 }
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 nav ul li a {
-    color: #00ff00;
+    color: #00ffcc;
     text-decoration: none;
 }
 nav ul li a:hover {
     color: white;
 }
 
-/* SEARCH */
-.search-box input {
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-}
-
 /* HEADER */
 header {
     text-align: center;
-    padding: 30px 10px;
+    padding: 40px 20px;
 }
 header h1 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    color: #00ffcc;
+    text-shadow: 0 0 20px #00ffcc;
 }
 header p {
-    color: #ccc;
+    color: #aaa;
 }
 
 /* CATEGORIES */
@@ -69,17 +61,16 @@ header p {
     justify-content: center;
 }
 .cat {
-    border: 1px solid #00ff00;
     margin: 10px;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border: 1px solid #00ffcc;
+    border-radius: 20px;
     transition: 0.3s;
 }
 .cat:hover {
-    background: #00ff00;
+    background: #00ffcc;
     color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 15px #00ffcc;
 }
 
 /* PRODUCTS */
@@ -90,35 +81,36 @@ header p {
     padding: 20px;
 }
 .product {
-    background: #111;
-    border: 1px solid #00ff00;
-    margin: 15px;
-    padding: 15px;
     width: 260px;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.3s;
+    margin: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
 }
 .product:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 20px #00ff00;
+    box-shadow: 0 0 20px #00ffcc;
 }
 .product img {
     width: 100%;
-    border-radius: 10px;
+    height: 180px;
+    object-fit: cover;
 }
 .product h3 {
-    color: #00ff00;
+    padding: 10px;
+    color: #00ffcc;
 }
 .price {
-    margin: 10px 0;
+    padding: 0 10px;
 }
-
-/* BUTTON */
 .btn {
-    display: inline-block;
-    background: red;
+    display: block;
+    margin: 10px;
+    text-align: center;
     padding: 10px;
+    background: red;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -129,14 +121,14 @@ header p {
 
 /* FOOTER */
 footer {
-    background: #0a0a0a;
     text-align: center;
     padding: 20px;
-    color: #aaa;
+    background: #000;
+    color: #888;
 }
 
 /* MOBILE */
-@media (max-width: 700px) {
+@media(max-width: 700px) {
     nav {
         flex-direction: column;
     }
@@ -154,29 +146,21 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
-    <div class="logo">🎮 Pro Store</div>
-
+    <div class="logo">🎮 Pro Gaming</div>
     <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Categories</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Contact</a></li>
     </ul>
-
-    <div class="search-box">
-        <input type="text" placeholder="Search... 🔍">
-    </div>
 </nav>
 
-<!-- HEADER -->
 <header>
     <h1>🎮 Welcome to Pro Gaming Store</h1>
     <p>Best Gaming Accessories in Pakistan 🔥</p>
 </header>
 
-<!-- CATEGORIES -->
 <section class="categories">
     <div class="cat">Mouse</div>
     <div class="cat">Keyboard</div>
@@ -185,50 +169,48 @@ footer {
     <div class="cat">Mousepad</div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="products">
 
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7" alt="">
-        <h3>Gaming Mouse</h3>
-        <div class="price">Rs. 3,000</div>
-        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
-    </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7" />
+<h3>Gaming Mouse</h3>
+<div class="price">Rs. 3,000</div>
+<a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
+</div>
 
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04" alt="">
-        <h3>RGB Keyboard</h3>
-        <div class="price">Rs. 6,000</div>
-        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
-    </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04" />
+<h3>RGB Keyboard</h3>
+<div class="price">Rs. 6,500</div>
+<a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
+</div>
 
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1585386959984-a41552231658" alt="">
-        <h3>Gaming Headset</h3>
-        <div class="price">Rs. 4,500</div>
-        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
-    </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231658" />
+<h3>Gaming Headset</h3>
+<div class="price">Rs. 4,800</div>
+<a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
+</div>
 
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" alt="">
-        <h3>Controller</h3>
-        <div class="price">Rs. 7,000</div>
-        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
-    </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db" />
+<h3>Controller</h3>
+<div class="price">Rs. 7,500</div>
+<a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
+</div>
 
-    <div class="product">
-        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5" alt="">
-        <h3>Mousepad</h3>
-        <div class="price">Rs. 1,500</div>
-        <a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
-    </div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5" />
+<h3>Mousepad</h3>
+<div class="price">Rs. 1,800</div>
+<a class="btn" href="https://wa.me/923000000000">Buy on WhatsApp</a>
+</div>
 
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>📞 WhatsApp: 0300-0000000</p>
-    <p>© 2026 Pro Gaming Store</p>
+<p>📞 WhatsApp: 0300-0000000</p>
+<p>© 2026 Pro Gaming Store</p>
 </footer>
 
 </body>
