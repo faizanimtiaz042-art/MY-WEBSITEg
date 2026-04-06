@@ -4,70 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pro Gaming Store</title>
-
 <style>
-body { background:#000; color:white; font-family:Arial; margin:0; }
-h1 { color:#00ff00; text-align:center; }
-
-.products {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+body {
+    margin:0; font-family:Arial; background:#000; color:white;
 }
+h1 { text-align:center; color:#ff0000; text-shadow:0 0 10px #ff0000; }
+
+/* Products Grid */
+.products { display:flex; flex-wrap:wrap; justify-content:center; padding:20px; }
 .product {
-    background:#111;
-    border:1px solid #00ff00;
-    margin:15px;
-    padding:15px;
-    width:260px;
-    text-align:center;
+    width:260px; margin:15px; padding:15px; text-align:center;
+    border:1px solid #ff0000; border-radius:10px; background:#111; transition:0.3s;
 }
-.product img { width:100%; height:180px; object-fit:cover; }
+.product:hover { transform:scale(1.05); box-shadow:0 0 15px #ff0000; }
+.product img { width:100%; height:180px; object-fit:cover; border-radius:10px; }
+.product h3 { color:#ff0000; }
+.btn { display:block; margin:10px 0; padding:10px; text-decoration:none; color:white; border-radius:5px; }
+.btn.add { background:#ff0000; }
+.btn.buy { background:#c00000; }
 
-.btn {
-    display:block;
-    margin:10px;
-    padding:10px;
-    text-decoration:none;
-    color:white;
-}
-.cart { background:green; }
-.buy { background:red; }
+/* Mobile */
+@media(max-width:600px){ .product{ width:90%; } }
 </style>
-
 </head>
-
 <body>
 
 <h1>🎮 Welcome to Pro Gaming Store</h1>
 
 <div class="products">
 
+<!-- Mouse -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
 <h3>Gaming Mouse</h3>
 <p>Rs. 3000</p>
-<a class="btn cart" href="checkout.html?product=Gaming Mouse&price=3000">Add to Cart</a>
+<a class="btn add" onclick="addToCart('Gaming Mouse',3000)">Add to Cart</a>
 <a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Mouse">Buy Now</a>
 </div>
 
+<!-- RGB Keyboard -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1595225476474-87563907a212">
-<h3>RGB Keyboard</h3>
+<h3>RGB Gaming Keyboard</h3>
 <p>Rs. 6500</p>
-<a class="btn cart" href="checkout.html?product=Keyboard&price=6500">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Keyboard">Buy Now</a>
+<a class="btn add" onclick="addToCart('RGB Gaming Keyboard',6500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Keyboard">Buy Now</a>
 </div>
 
+<!-- Headset -->
 <div class="product">
 <img src="https://images.unsplash.com/photo-1612444530582-fc66183b16f7">
 <h3>Gaming Headset</h3>
 <p>Rs. 4500</p>
-<a class="btn cart" href="checkout.html?product=Headset&price=4500">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Headset">Buy Now</a>
+<a class="btn add" onclick="addToCart('Gaming Headset',4500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Headset">Buy Now</a>
+</div>
+
+<!-- Controller -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db">
+<h3>Game Controller</h3>
+<p>Rs. 7000</p>
+<a class="btn add" onclick="addToCart('Game Controller',7000)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Game Controller">Buy Now</a>
+</div>
+
+<!-- Mousepad (Premium Image) -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1611599535964-6f8a9d4ffb12">
+<h3>Gaming Mousepad</h3>
+<p>Rs. 1800</p>
+<a class="btn add" onclick="addToCart('Gaming Mousepad',1800)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Mousepad">Buy Now</a>
 </div>
 
 </div>
+
+<!-- CART -->
+<h2 style="text-align:center;color:#ff0000;">🛒 Your Cart</h2>
+<div id="cart" style="width:90%; max-width:500px; margin:20px auto; background:#111; padding:20px; border:1px solid #ff0000; border-radius:10px;">
+<p id="emptyCart">Cart is empty</p>
+<ul id="cartItems" style="list-style:none;padding:0;"></ul>
+<p id="total"></p>
+<a id="checkoutBtn" class="btn add" style="display:none;">Checkout on WhatsApp</a>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(name, price){
+    cart.push({name:name, price:price});
+    renderCart();
+}
+
+function renderCart(){
+    let ul = document.getElementById("cartItems");
+    let totalP = document.getElementById("total");
+    let checkoutBtn = document.getElementById("checkoutBtn");
+    ul.innerHTML="";
+    if(cart.length==0){
+        document.getElementById("emptyCart").style.display="block";
+        checkoutBtn.style.display="none";
+        totalP.innerText="";
+        return;
+    }
+    document.getElementById("emptyCart").style.display="none";
+    let total=0;
+    cart.forEach((item,index)=>{
+        let li = document.createElement("li");
+        li.innerText=item.name + " - Rs. "+item.price;
+        ul.appendChild(li);
+        total+=item.price;
+    });
+    totalP.innerText="Total: Rs. "+total;
+    checkoutBtn.style.display="block";
+    let msg = "Order:%0A";
+    cart.forEach((item)=>{ msg+= item.name + " - Rs."+item.price +"%0A"; });
+    checkoutBtn.href = "https://wa.me/923000000000?text="+msg;
+}
+</script>
 
 </body>
 </html>
