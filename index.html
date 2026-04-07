@@ -3,112 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloody Pro Gaming Store</title>
+<title>Faizi Volt Gaming Store</title>
+
+<!-- Premium Font -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 /* BODY & BACKGROUND */
 body {
-    margin:0;
-    font-family:'Orbitron',sans-serif;
-    background:#000;
-    color:#fff;
-    overflow-x:hidden;
-    position:relative;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
 }
 body::before {
-    content:"";
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    z-index:-1;
-    background:url('https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3') no-repeat center center;
-    background-size:cover;
-    opacity:0.05;
-    animation: bgMove 20s linear infinite;
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(ellipse at center, #1a0000, #000000);
+    opacity: 0.85;
+    z-index: -2;
 }
-@keyframes bgMove {0%{background-position:0 0} 50%{background-position:100% 100%} 100%{background-position:0 0}}
 
-/* BLOODY NEON EFFECT */
-h1,h2{color:#ff0000; text-align:center; font-size:2.5rem; text-shadow:0 0 5px #ff0000,0 0 10px #ff0000,0 0 20px #ff0000,0 0 40px #ff0000; animation: neonGlow 1.5s ease-in-out infinite alternate;}
-@keyframes neonGlow {0%{text-shadow:0 0 5px #ff0000,0 0 10px #ff0000,0 0 20px #ff0000} 100%{text-shadow:0 0 10px #ff0000,0 0 20px #ff0000,0 0 30px #ff0000}}
+/* NEON HEADING */
+h1, h2 {
+    text-align: center;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #8b0000;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+@keyframes neonGlow {
+    from { text-shadow: 0 0 5px #ff0000; }
+    to { text-shadow: 0 0 30px #ff0000; }
+}
 
 /* NAVBAR */
-nav { display:flex; justify-content:space-between; align-items:center; padding:15px 25px; background:rgba(0,0,0,0.9); position:sticky; top:0; z-index:100; border-bottom:2px solid #8b0000; }
-.logo { font-size:24px; color:#ff0000; font-weight:bold; letter-spacing:2px; }
-.nav-links a { color:#ff0000; margin:0 15px; font-weight:700; transition:0.3s; }
-.nav-links a:hover { color:white; text-shadow:0 0 10px #ff0000; }
-.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-.hamburger div { width:28px; height:3px; background:#ff0000; border-radius:3px; }
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px; background: rgba(10,10,10,0.9);
+    border-bottom: 2px solid #8b0000;
+    position: sticky; top: 0; z-index: 100;
+}
+.logo {
+    font-size: 26px; color: #ff0000; font-weight: bold;
+    letter-spacing: 2px;
+}
+.nav-links a {
+    color: #ff0000; margin: 0 15px; font-weight: 700;
+    transition: 0.3s;
+}
+.nav-links a:hover {
+    color: white; text-shadow: 0 0 10px #ff0000;
+}
+.hamburger {
+    display: none; flex-direction: column; gap: 6px; cursor: pointer;
+}
+.hamburger div {
+    width: 30px; height: 3px; background: #ff0000;
+    border-radius: 4px;
+}
 
 /* MOBILE NAV */
-@media(max-width:768px){.nav-links{display:none; flex-direction:column; background:#111; position:absolute; top:65px; right:0; width:230px; border:2px solid #ff0000; border-radius:8px; padding:10px;}.nav-links.show{display:flex;}.hamburger{display:flex;}}
-
-/* HEADER */
-header{text-align:center;padding:45px 20px;}
-header p{color:#ccc;font-size:18px; text-shadow:0 0 5px #8b0000;}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; flex-direction: column; background: #111;
+        position:absolute; top:60px; right:0; width:240px;
+        border:2px solid #ff0000; border-radius:8px; padding:12px;
+    }
+    .nav-links.show { display: flex; }
+    .hamburger { display: flex; }
+}
 
 /* SEARCH */
-#searchBox{display:block;margin:0 auto 25px;padding:14px;width:90%;max-width:420px;border-radius:8px;border:2px solid #ff0000;background:#111;color:white;font-family:'Orbitron';font-size:16px;}
+#searchBox {
+    display:block; margin:15px auto; padding:12px;
+    width:90%; max-width:460px;
+    border-radius:8px; border:2px solid #ff0000;
+    background:#111; color:white; font-size:16px;
+}
 
-/* PRODUCTS */
-.products{display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px;}
-.product{width:260px; background:rgba(139,0,0,0.05); backdrop-filter:blur(12px); padding:22px; text-align:center; border:2px solid #ff0000; border-radius:14px; transition:0.5s;}
-.product:hover{transform:scale(1.07); box-shadow:0 0 25px #ff0000,0 0 50px #8b0000;}
-.product img{width:100%; height:180px; object-fit:cover; border-radius:10px; transition:0.4s; filter:contrast(1.2);}
-.product img:hover{transform:scale(1.08) rotate(-1deg);}
-.product h3{color:#ff0000;margin:12px 0 8px;font-size:18px; letter-spacing:1px; text-shadow:0 0 5px #8b0000;}
-.btn{display:block; padding:12px; margin-top:8px; font-weight:bold; border-radius:6px; font-size:14px; text-decoration:none;}
-.btn.add{background:#8b0000;}
-.btn.buy{background:#ff0000;}
-.btn:hover{opacity:0.9; box-shadow:0 0 12px #ff0000, 0 0 20px #8b0000;}
+/* PRODUCT CARDS */
+.products {
+    display: flex; flex-wrap: wrap; justify-content: center; gap:18px; padding:20px;
+}
+.product {
+    width: 260px; background: rgba(255,0,0,0.05);
+    border: 2px solid #ff0000; border-radius: 14px;
+    backdrop-filter: blur(10px); padding:20px;
+    text-align:center; transition:0.5s;
+}
+.product:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #ff0000, 0 0 40px #8b0000;
+}
+.product img {
+    width:100%; height:180px; object-fit:cover; border-radius:10px;
+    filter: contrast(1.25); transition:0.4s;
+}
+.product img:hover { transform: scale(1.1); }
+
+/* BUTTONS */
+.btn {
+    display:block; padding:12px; margin-top:8px;
+    font-weight:bold; border-radius:6px; font-size:14px;
+    text-decoration:none;
+}
+.btn.add { background: #8b0000; color:white; }
+.btn.buy { background: #ff0000; color:white; }
+.btn:hover {
+    opacity:0.9;
+    box-shadow:0 0 12px #ff0000,0 0 18px #8b0000;
+}
 
 /* CART */
-#cart{width:90%; max-width:650px; margin:25px auto; background:rgba(20,0,0,0.9); padding:22px; border:2px solid #ff0000; border-radius:15px;}
-#cart ul{list-style:none; padding:0;}
-#cart li{margin:8px 0; font-size:16px;}
+#cart {
+    width:90%; max-width:650px; margin:30px auto;
+    background:rgba(20,0,0,0.9); padding:22px;
+    border:2px solid #ff0000; border-radius:15px;
+}
+#cart ul { list-style:none; padding:0; }
+#cart li { margin:10px 0; font-size:16px; font-weight:bold; }
 
 /* FOOTER */
-footer{text-align:center; padding:25px; background:#000; color:#aaa; font-size:15px; border-top:2px solid #8b0000;}
-
-/* RESPONSIVE */
-@media(max-width:600px){.product{width:90%;}}
-
-/* BLOOD PARTICLES */
-.particle{position:absolute; background:red; width:5px; height:5px; border-radius:50%; animation:particleMove linear infinite;}
-@keyframes particleMove{0%{transform:translateY(0) rotate(0deg)} 100%{transform:translateY(900px) rotate(360deg); opacity:0;}}
+footer {
+    text-align:center; padding:25px;
+    background:#000; color:#aaa; border-top:2px solid #8b0000;
+    font-size:15px;
+}
 </style>
 </head>
+
 <body>
 
 <nav>
-    <div class="logo">🎮 BLOODY PRO GAMING</div>
+    <div class="logo">🎮 FAIZI VOLT</div>
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#">Categories</a>
         <a href="#">Products</a>
         <a href="#">Contact</a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+    </div>
 </nav>
 
-<header>
-<h1>🎮 Welcome to Bloody Pro Gaming Store</h1>
-<p>Best Gaming Accessories in Pakistan 🔥</p>
-</header>
+<h1>🎮 Welcome to Faizi Volt</h1>
+<p style="text-align:center; color:#ccc; font-size:18px;">Best Premium Gaming Accessories in Pakistan 🔥</p>
 
 <input type="text" id="searchBox" placeholder="Search products..." onkeyup="filterProducts()">
 
 <section class="products" id="productGrid">
-<!-- Products here: mouse, keyboard, headset, controller, mousepad, chair, lights, headset stand -->
-<!-- Example for one product -->
+
+<!-- Gaming Mouse -->
 <div class="product" data-name="Gaming Mouse">
 <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
-<h3>Gaming Mouse</h3>
-<p>Rs. 3000</p>
-<a class="btn add" onclick="addToCart('Gaming Mouse',3000)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Mouse">Buy Now</a>
+<h3>Pro Gaming Mouse</h3>
+<p>Rs. 3500</p>
+<a class="btn add" onclick="addToCart('Pro Gaming Mouse',3500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Pro Gaming Mouse">Buy Now</a>
 </div>
-<!-- Add rest of products as before with their images -->
+
+<!-- Premium Mechanical Keyboard -->
+<div class="product" data-name="Premium Mechanical Keyboard">
+<img src="https://images.unsplash.com/photo-1595225476474-87563907a212">
+<h3>Premium Mechanical Keyboard</h3>
+<p>Rs. 7500</p>
+<a class="btn add" onclick="addToCart('Premium Mechanical Keyboard',7500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Premium Mechanical Keyboard">Buy Now</a>
+</div>
+
+<!-- Gaming Headphones -->
+<div class="product" data-name="Gaming Headphones">
+<img src="https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3">
+<h3>RGB Gaming Headphones</h3>
+<p>Rs. 4800</p>
+<a class="btn add" onclick="addToCart('RGB Gaming Headphones',4800)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Headphones">Buy Now</a>
+</div>
+
+<!-- Gaming Controller -->
+<div class="product" data-name="Gaming Controller">
+<img src="https://images.unsplash.com/photos/pete-ross-sample-controller-image-12345">
+<h3>Wireless Gaming Controller</h3>
+<p>Rs. 7000</p>
+<a class="btn add" onclick="addToCart('Wireless Gaming Controller',7000)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Wireless Gaming Controller">Buy Now</a>
+</div>
+
+<!-- Premium Mousepad -->
+<div class="product" data-name="Gaming Mousepad">
+<img src="https://images.unsplash.com/photo-1625816673384-8e2e9fcf5d6e">
+<h3>Premium Gaming Mousepad</h3>
+<p>Rs. 2000</p>
+<a class="btn add" onclick="addToCart('Premium Gaming Mousepad',2000)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Premium Gaming Mousepad">Buy Now</a>
+</div>
+
+<!-- Gaming Chair -->
+<div class="product" data-name="Gaming Chair">
+<img src="https://images.pexels.com/photos/4207790/pexels-photo-4207790.jpeg">
+<h3>Luxury Gaming Chair</h3>
+<p>Rs. 22000</p>
+<a class="btn add" onclick="addToCart('Luxury Gaming Chair',22000)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Luxury Gaming Chair">Buy Now</a>
+</div>
+
+<!-- RGB Gaming Lights -->
+<div class="product" data-name="RGB Gaming Lights">
+<img src="https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3">
+<h3>RGB Gaming Lights</h3>
+<p>Rs. 4200</p>
+<a class="btn add" onclick="addToCart('RGB Gaming Lights',4200)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Lights">Buy Now</a>
+</div>
+
+<!-- Headset Stand -->
+<div class="product" data-name="Headset Stand">
+<img src="https://images.unsplash.com/photos/headset-and-stand-sample-12345">
+<h3>LED Headset Stand</h3>
+<p>Rs. 2500</p>
+<a class="btn add" onclick="addToCart('LED Headset Stand',2500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want LED Headset Stand">Buy Now</a>
+</div>
+
 </section>
 
 <h2>🛒 Your Cart</h2>
@@ -120,50 +240,54 @@ footer{text-align:center; padding:25px; background:#000; color:#aaa; font-size:1
 </div>
 
 <footer>
-<p>📞 WhatsApp: 0300-0000000</p>
-<p>© 2026 Bloody Pro Gaming Store</p>
+<p>📞 WhatsApp: 03250604099</p>
+<p>© 2026 Faizi Volt Gaming Store</p>
 </footer>
 
-<!-- BLOOD PARTICLES -->
 <script>
-for(let i=0;i<40;i++){
-    let p=document.createElement("div");
-    p.className="particle";
-    p.style.left=Math.random()*100+"%";
-    p.style.top=Math.random()*-100+"px";
-    p.style.width=Math.random()*6+4+"px";
-    p.style.height=p.style.width;
-    p.style.animationDuration=Math.random()*6+4+"s";
-    document.body.appendChild(p);
-}
-
 // Hamburger menu
-function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('show'); }
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('show');
+}
 
 // Cart system
 let cart=[];
-function addToCart(name,price){ cart.push({name:name,price:price}); renderCart(); }
+function addToCart(name,price){
+    cart.push({name:name,price:price});
+    renderCart();
+}
 function renderCart(){
     let ul=document.getElementById("cartItems");
     let totalP=document.getElementById("total");
     let checkoutBtn=document.getElementById("checkoutBtn");
     ul.innerHTML="";
-    if(cart.length==0){ document.getElementById("emptyCart").style.display="block"; checkoutBtn.style.display="none"; totalP.innerText=""; return;}
+    if(cart.length===0){
+        document.getElementById("emptyCart").style.display="block";
+        checkoutBtn.style.display="none";
+        totalP.innerText="";
+        return;
+    }
     document.getElementById("emptyCart").style.display="none";
     let total=0;
-    cart.forEach(item=>{ let li=document.createElement("li"); li.innerText=item.name+" - Rs."+item.price; ul.appendChild(li); total+=item.price; });
+    cart.forEach(item=>{
+        let li=document.createElement("li");
+        li.innerText=item.name+" — Rs."+item.price;
+        ul.appendChild(li);
+        total+=item.price;
+    });
     totalP.innerText="Total: Rs."+total;
     checkoutBtn.style.display="block";
-    let msg="Order:%0A"; cart.forEach(item=>{ msg+=item.name+" - Rs."+item.price+"%0A"; });
-    checkoutBtn.href="https://wa.me/923000000000?text="+msg;
+    let msg="Order:%0A";
+    cart.forEach(item => { msg+=item.name+" - Rs."+item.price+"%0A"; });
+    checkoutBtn.href="https://wa.me/923250604099?text="+msg;
 }
 
-// Search
+// Search filter
 function filterProducts(){
     let input=document.getElementById("searchBox").value.toLowerCase();
-    let items=document.querySelectorAll(".product");
-    items.forEach(item=>{
-        item.style.display = item.dataset.name.toLowerCase().includes(input) ? "block" : "none";
+    document.querySelectorAll(".product").forEach(product=>{
+        let name=product.dataset.name.toLowerCase();
+        product.style.display=name.includes(input) ? "block":"none";
     });
 }
 </script>
