@@ -7,66 +7,195 @@
 <!-- Premium Font -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* BODY & FONT */
-body { margin:0; font-family:'Orbitron', sans-serif; background:#0a0a0a; color:white; }
-h1,h2 { text-align:center; color:#ff0000; text-shadow:0 0 15px #ff0000; }
+body {
+    margin:0;
+    font-family:'Orbitron',sans-serif;
+    background:#04040a;
+    color:white;
+}
 
 /* NAVBAR */
-nav { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:rgba(10,10,10,0.95); position:sticky; top:0; z-index:100; }
-.logo { font-weight:bold; font-size:22px; color:#ff0000; letter-spacing:2px; }
-.nav-links { display:flex; gap:20px; }
-.nav-links a { color:#ff0000; transition:0.3s; }
-.nav-links a:hover { color:white; }
-.hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-.hamburger div { width:25px; height:3px; background:#ff0000; transition:0.3s; }
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 25px;
+    background:rgba(10,10,10,0.95);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.logo {
+    font-size:24px;
+    color:#ff0000;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+.nav-links a {
+    color:#ff0000;
+    margin:0 15px;
+    font-weight:700;
+    transition:0.3s;
+}
+.nav-links a:hover {
+    color:white;
+    text-shadow:0 0 10px #ff0000;
+}
+.hamburger {
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+.hamburger div {
+    width:28px;
+    height:3px;
+    background:#ff0000;
+    border-radius:3px;
+}
 
-/* MOBILE NAV */
+/* MOBILE MENU */
 @media(max-width:768px){
-    .nav-links { display:none; flex-direction:column; background:#111; position:absolute; top:60px; right:0; width:220px; border:1px solid #ff0000; border-radius:10px; padding:10px; }
-    .nav-links.show { display:flex; }
-    .hamburger { display:flex; }
+    .nav-links {
+        display:none;
+        flex-direction:column;
+        background:#111;
+        position:absolute;
+        top:65px;
+        right:0;
+        width:230px;
+        border:2px solid #ff0000;
+        border-radius:8px;
+        padding:10px;
+    }
+    .nav-links.show {
+        display:flex;
+    }
+    .hamburger {
+        display:flex;
+    }
 }
 
 /* HEADER */
-header { text-align:center; padding:40px 20px; }
-header p { color:#aaa; font-size:18px; }
+header {
+    text-align:center;
+    padding:45px 20px;
+}
+header p {
+    color:#ccc;
+    font-size:18px;
+}
 
 /* SEARCH */
-#searchBox { display:block; margin:0 auto 20px; padding:12px; width:90%; max-width:400px; border-radius:8px; border:1px solid #ff0000; background:#111; color:white; font-family:'Orbitron', sans-serif; }
-
-/* PRODUCTS GRID */
-.products { display:flex; flex-wrap:wrap; justify-content:center; padding:20px; }
-.product {
-    width:260px; margin:15px; padding:20px; text-align:center;
-    border-radius:15px; background:rgba(255,0,0,0.05); backdrop-filter:blur(12px);
-    border:1px solid #ff0000; transition:0.4s;
+#searchBox {
+    display:block;
+    margin:0 auto 25px;
+    padding:14px;
+    width:90%;
+    max-width:420px;
+    border-radius:8px;
+    border:2px solid #ff0000;
+    background:#111;
+    color:white;
+    font-family:'Orbitron';
+    font-size:16px;
 }
-.product:hover { transform:scale(1.05); box-shadow:0 0 25px #ff0000; }
-.product img { width:100%; height:180px; object-fit:cover; border-radius:10px; transition:0.3s; }
-.product img:hover { transform:scale(1.05); }
-.product h3 { color:#ff0000; margin:10px 0; letter-spacing:1px; }
-.btn { display:block; margin:10px 0; padding:12px; border-radius:5px; font-weight:bold; }
-.add { background:#ff0000; }
-.buy { background:#c00000; }
-.btn:hover { opacity:0.9; cursor:pointer; }
+
+/* PRODUCTS */
+.products {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+}
+.product {
+    width:260px;
+    background:rgba(255,0,0,0.05);
+    backdrop-filter:blur(12px);
+    padding:22px;
+    text-align:center;
+    border:2px solid #ff0000;
+    border-radius:14px;
+    transition:0.5s;
+}
+.product:hover {
+    transform:scale(1.07);
+    box-shadow:0 0 22px #ff0000;
+}
+.product img {
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:0.4s;
+}
+.product img:hover {
+    transform:scale(1.08);
+}
+.product h3 {
+    color:#ff0000;
+    margin:12px 0 8px;
+    font-size:18px;
+    letter-spacing:1px;
+}
+.btn {
+    display:block;
+    padding:12px;
+    margin-top:8px;
+    font-weight:bold;
+    border-radius:6px;
+    font-size:14px;
+    text-decoration:none;
+}
+.btn.add { background:#ff0000; }
+.btn.buy { background:#c00000; }
+.btn:hover {
+    opacity:0.9;
+    box-shadow:0 0 10px #ff0000;
+}
 
 /* CART */
-#cart { width:90%; max-width:600px; margin:20px auto; background:rgba(20,20,20,0.9); padding:20px; border:1px solid #ff0000; border-radius:15px; }
-#cart ul { list-style:none; padding:0; }
-#cart li { margin:5px 0; }
+#cart {
+    width:90%;
+    max-width:650px;
+    margin:25px auto;
+    background:rgba(20,20,20,0.9);
+    padding:22px;
+    border:2px solid #ff0000;
+    border-radius:15px;
+}
+#cart ul {
+    list-style:none;
+    padding:0;
+}
+#cart li {
+    margin:8px 0;
+    font-size:16px;
+}
 
 /* FOOTER */
-footer { text-align:center; padding:25px; background:#0a0a0a; color:#888; letter-spacing:1px; }
+footer {
+    text-align:center;
+    padding:25px;
+    background:#04040a;
+    color:#aaa;
+    font-size:15px;
+}
 
-/* MOBILE */
-@media(max-width:600px){ .product{ width:90%; } }
+/* RESPONSIVE */
+@media(max-width:600px){
+    .product {
+        width:90%;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">🎮 Pro Gaming</div>
+    <div class="logo">🎮 PRO GAMING</div>
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#">Categories</a>
@@ -83,7 +212,6 @@ footer { text-align:center; padding:25px; background:#0a0a0a; color:#888; letter
     <p>Best Gaming Accessories in Pakistan 🔥</p>
 </header>
 
-<!-- SEARCH -->
 <input type="text" id="searchBox" placeholder="Search products..." onkeyup="filterProducts()">
 
 <section class="products" id="productGrid">
@@ -124,22 +252,13 @@ footer { text-align:center; padding:25px; background:#0a0a0a; color:#888; letter
 <a class="btn buy" href="https://wa.me/923000000000?text=I want Game Controller">Buy Now</a>
 </div>
 
-<!-- Gaming Mousepad -->
+<!-- Premium Mousepad -->
 <div class="product" data-name="Gaming Mousepad">
 <img src="https://images.unsplash.com/photo-1625816673384-8e2e9fcf5d6e">
 <h3>Gaming Mousepad</h3>
 <p>Rs. 1800</p>
 <a class="btn add" onclick="addToCart('Gaming Mousepad',1800)">Add to Cart</a>
 <a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Mousepad">Buy Now</a>
-</div>
-
-<!-- Gaming Chair -->
-<div class="product" data-name="Gaming Chair">
-<img src="https://images.unsplash.com/photo-1615824230937-d5d8b2f37b54">
-<h3>Gaming Chair</h3>
-<p>Rs. 22000</p>
-<a class="btn add" onclick="addToCart('Gaming Chair',22000)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Chair">Buy Now</a>
 </div>
 
 <!-- RGB Gaming Lights -->
@@ -151,13 +270,22 @@ footer { text-align:center; padding:25px; background:#0a0a0a; color:#888; letter
 <a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Lights">Buy Now</a>
 </div>
 
-<!-- Headset Stand -->
+<!-- Ultra Gaming Chair -->
+<div class="product" data-name="Gaming Chair">
+<img src="turn0image6">
+<h3>Gaming Chair</h3>
+<p>Rs. 22000</p>
+<a class="btn add" onclick="addToCart('Gaming Chair',22000)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want Gaming Chair">Buy Now</a>
+</div>
+
+<!-- RGB Headset Stand -->
 <div class="product" data-name="Headset Stand">
-<img src="https://images.unsplash.com/photo-1611599535964-6f8a9d4ffb12">
-<h3>Headset Stand</h3>
+<img src="turn0image9">
+<h3>RGB Headset Stand</h3>
 <p>Rs. 2500</p>
-<a class="btn add" onclick="addToCart('Headset Stand',2500)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Headset Stand">Buy Now</a>
+<a class="btn add" onclick="addToCart('RGB Headset Stand',2500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Headset Stand">Buy Now</a>
 </div>
 
 </section>
@@ -176,10 +304,10 @@ footer { text-align:center; padding:25px; background:#0a0a0a; color:#888; letter
 </footer>
 
 <script>
-// Hamburger Menu
+// Hamburger menu
 function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('show'); }
 
-// Cart System
+// Cart system
 let cart=[];
 function addToCart(name,price){ cart.push({name:name,price:price}); renderCart(); }
 function renderCart(){
@@ -197,13 +325,12 @@ function renderCart(){
     checkoutBtn.href="https://wa.me/923000000000?text="+msg;
 }
 
-// Search Filter
+// Search
 function filterProducts(){
     let input=document.getElementById("searchBox").value.toLowerCase();
     let items=document.querySelectorAll(".product");
     items.forEach(item=>{
-        if(item.dataset.name.toLowerCase().includes(input)){ item.style.display="block"; }
-        else{ item.style.display="none"; }
+        item.style.display = item.dataset.name.toLowerCase().includes(input) ? "block" : "none";
     });
 }
 </script>
