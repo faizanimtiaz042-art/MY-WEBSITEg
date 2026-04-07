@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faizi Volt Gaming Store</title>
+<title>Faizi Volt Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -13,17 +13,23 @@ body {
     background:#000;
     color:#fff;
     overflow-x:hidden;
+    position: relative;
 }
 
-/* BACKGROUND UNDERTONE */
-body::before {
-    content:"";
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:radial-gradient(ellipse at center, #1a0000, #000);
-    opacity:0.9;
-    z-index:-2;
+/* FALLING FLAMES EFFECT */
+@keyframes fall {
+    0% {transform: translateY(-50px) rotate(0deg);}
+    100% {transform: translateY(100vh) rotate(360deg);}
+}
+.flame {
+    position: absolute;
+    top: -50px;
+    width: 8px;
+    height: 20px;
+    background: radial-gradient(circle, #ff0000, #ff9900);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
 }
 
 /* NEON HEADINGS */
@@ -132,11 +138,23 @@ footer {
 @media(max-width:600px){ .product{ width:90%; }}
 </style>
 </head>
-
 <body>
 
+<!-- FALLING FLAMES ELEMENTS -->
+<script>
+for(let i=0;i<50;i++){
+    let flame=document.createElement('div');
+    flame.classList.add('flame');
+    flame.style.left=Math.random()*100+'vw';
+    flame.style.animationDuration=(3+Math.random()*5)+'s';
+    flame.style.animationDelay=(Math.random()*5)+'s';
+    flame.style.opacity=0.3 + Math.random()*0.7;
+    document.body.appendChild(flame);
+}
+</script>
+
 <nav>
-    <div class="logo">🎮 FAIZI VOLT</div>
+    <div class="logo">🎮 Faizi Volt Store</div>
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#">Categories</a>
@@ -148,14 +166,14 @@ footer {
     </div>
 </nav>
 
-<h1>🎮 Welcome to Faizi Volt</h1>
+<h1>🎮 Welcome to Faizi Volt Store</h1>
 <p style="text-align:center;color:#ccc;font-size:18px;">Best Premium Gaming Accessories in Pakistan 🔥</p>
 
 <input type="text" id="searchBox" placeholder="Search products..." onkeyup="filterProducts()">
 
 <section class="products" id="productGrid">
 
-<!-- Gaming Mouse -->
+<!-- Example products with premium images -->
 <div class="product" data-name="Gaming Mouse">
 <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7">
 <h3>Pro Gaming Mouse</h3>
@@ -164,8 +182,7 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want Pro Gaming Mouse">Buy Now</a>
 </div>
 
-<!-- Premium Mechanical Keyboard -->
-<div class="product" data-name="Premium Mechanical Keyboard">
+<div class="product" data-name="Mechanical Keyboard">
 <img src="https://images.unsplash.com/photos/gaming-setup-with-illuminated-keyboard-and-controller-zpI3Es5q_hQ">
 <h3>Premium Mechanical Keyboard</h3>
 <p>Rs. 7500</p>
@@ -173,7 +190,6 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want Premium Mechanical Keyboard">Buy Now</a>
 </div>
 
-<!-- RGB Gaming Headphones -->
 <div class="product" data-name="Gaming Headphones">
 <img src="https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3">
 <h3>RGB Gaming Headphones</h3>
@@ -182,7 +198,6 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want RGB Gaming Headphones">Buy Now</a>
 </div>
 
-<!-- Wireless Gaming Controller -->
 <div class="product" data-name="Gaming Controller">
 <img src="https://images.unsplash.com/photo-1591286114952-4bde5621aac8">
 <h3>Wireless Gaming Controller</h3>
@@ -191,7 +206,6 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want Wireless Gaming Controller">Buy Now</a>
 </div>
 
-<!-- Premium Gaming Mousepad -->
 <div class="product" data-name="Gaming Mousepad">
 <img src="https://images.unsplash.com/photo-1600267165441-7db8a95f7f2d">
 <h3>Premium Gaming Mousepad</h3>
@@ -200,7 +214,6 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want Premium Gaming Mousepad">Buy Now</a>
 </div>
 
-<!-- RGB Headset Stand -->
 <div class="product" data-name="Headset Stand">
 <img src="https://media.istockphoto.com/photos/rgb-headphone-stand-on-dark-background-picture-id1415398729">
 <h3>RGB Headset Stand</h3>
@@ -209,7 +222,6 @@ footer {
 <a class="btn buy" href="https://wa.me/923250604099?text=I want RGB Headset Stand">Buy Now</a>
 </div>
 
-<!-- Luxury Gaming Chair -->
 <div class="product" data-name="Gaming Chair">
 <img src="https://images.unsplash.com/photo-1611599535964-6f8a9d4ffb12">
 <h3>Luxury Gaming Chair</h3>
@@ -230,7 +242,7 @@ footer {
 
 <footer>
 <p>📞 WhatsApp: 03250604099</p>
-<p>© 2026 Faizi Volt Gaming Store</p>
+<p>© 2026 Faizi Volt Store</p>
 </footer>
 
 <script>
@@ -239,18 +251,13 @@ function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('sh
 
 // Cart system
 let cart=[];
-function addToCart(name,price){ cart.push({name,name,price}); renderCart(); }
+function addToCart(name,price){ cart.push({name,price}); renderCart(); }
 function renderCart(){
     let ul=document.getElementById("cartItems");
     let totalP=document.getElementById("total");
     let checkoutBtn=document.getElementById("checkoutBtn");
     ul.innerHTML="";
-    if(cart.length===0){
-        document.getElementById("emptyCart").style.display="block";
-        checkoutBtn.style.display="none";
-        totalP.innerText="";
-        return;
-    }
+    if(cart.length===0){ document.getElementById("emptyCart").style.display="block"; checkoutBtn.style.display="none"; totalP.innerText=""; return; }
     document.getElementById("emptyCart").style.display="none";
     let total=0;
     cart.forEach(item=>{
@@ -270,7 +277,7 @@ function renderCart(){
 function filterProducts(){
     let input=document.getElementById("searchBox").value.toLowerCase();
     document.querySelectorAll(".product").forEach(product=>{
-        product.style.display = product.dataset-name.toLowerCase().includes(input) ? "block":"none";
+        product.style.display = product.dataset.name.toLowerCase().includes(input) ? "block":"none";
     });
 }
 </script>
