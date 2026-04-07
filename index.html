@@ -4,76 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Faizi Volt Gaming Store</title>
-
-<!-- Premium Font -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* BODY & BACKGROUND */
 body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
-}
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(ellipse at center, #1a0000, #000000);
-    opacity: 0.85;
-    z-index: -2;
+    margin:0;
+    font-family:'Orbitron',sans-serif;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* NEON HEADING */
-h1, h2 {
-    text-align: center;
-    color: #ff0000;
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #8b0000;
+/* BACKGROUND UNDERTONE */
+body::before {
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:radial-gradient(ellipse at center, #1a0000, #000);
+    opacity:0.9;
+    z-index:-2;
+}
+
+/* NEON HEADINGS */
+h1,h2 {
+    text-align:center;
+    color:#ff0000;
+    text-shadow:0 0 10px #ff0000, 0 0 20px #8b0000;
     animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 @keyframes neonGlow {
-    from { text-shadow: 0 0 5px #ff0000; }
-    to { text-shadow: 0 0 30px #ff0000; }
+    from { text-shadow:0 0 6px #ff0000; }
+    to { text-shadow:0 0 30px #ff0000; }
 }
 
 /* NAVBAR */
 nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 30px; background: rgba(10,10,10,0.9);
-    border-bottom: 2px solid #8b0000;
-    position: sticky; top: 0; z-index: 100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:15px 30px; background:rgba(10,10,10,0.9);
+    border-bottom:2px solid #8b0000; position:sticky; top:0; z-index:100;
 }
 .logo {
-    font-size: 26px; color: #ff0000; font-weight: bold;
-    letter-spacing: 2px;
+    font-size:26px; color:#ff0000; font-weight:bold; letter-spacing:2px;
 }
 .nav-links a {
-    color: #ff0000; margin: 0 15px; font-weight: 700;
-    transition: 0.3s;
+    color:#ff0000; margin:0 15px; font-weight:700; transition:0.3s;
 }
 .nav-links a:hover {
-    color: white; text-shadow: 0 0 10px #ff0000;
+    color:white; text-shadow:0 0 10px #ff0000;
 }
 .hamburger {
-    display: none; flex-direction: column; gap: 6px; cursor: pointer;
+    display:none; flex-direction:column; gap:6px; cursor:pointer;
 }
 .hamburger div {
-    width: 30px; height: 3px; background: #ff0000;
-    border-radius: 4px;
+    width:30px; height:3px; background:#ff0000;
 }
 
 /* MOBILE NAV */
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .nav-links {
-        display: none; flex-direction: column; background: #111;
+        display:none; flex-direction:column; background:#111;
         position:absolute; top:60px; right:0; width:240px;
         border:2px solid #ff0000; border-radius:8px; padding:12px;
     }
-    .nav-links.show { display: flex; }
-    .hamburger { display: flex; }
+    .nav-links.show {display:flex;}
+    .hamburger {display:flex;}
 }
 
 /* SEARCH */
@@ -84,25 +79,25 @@ nav {
     background:#111; color:white; font-size:16px;
 }
 
-/* PRODUCT CARDS */
+/* PRODUCTS GRID */
 .products {
-    display: flex; flex-wrap: wrap; justify-content: center; gap:18px; padding:20px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:18px; padding:20px;
 }
 .product {
-    width: 260px; background: rgba(255,0,0,0.05);
-    border: 2px solid #ff0000; border-radius: 14px;
-    backdrop-filter: blur(10px); padding:20px;
+    width:260px; background:rgba(255,0,0,0.05);
+    border:2px solid #ff0000; border-radius:14px;
+    backdrop-filter:blur(10px); padding:20px;
     text-align:center; transition:0.5s;
 }
 .product:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px #ff0000, 0 0 40px #8b0000;
+    transform:scale(1.08);
+    box-shadow:0 0 25px #ff0000, 0 0 40px #8b0000;
 }
 .product img {
     width:100%; height:180px; object-fit:cover; border-radius:10px;
-    filter: contrast(1.25); transition:0.4s;
+    filter:contrast(1.25); transition:0.4s;
 }
-.product img:hover { transform: scale(1.1); }
+.product img:hover {transform:scale(1.1);}
 
 /* BUTTONS */
 .btn {
@@ -110,11 +105,11 @@ nav {
     font-weight:bold; border-radius:6px; font-size:14px;
     text-decoration:none;
 }
-.btn.add { background: #8b0000; color:white; }
-.btn.buy { background: #ff0000; color:white; }
+.btn.add {background:#8b0000; color:white;}
+.btn.buy {background:#ff0000; color:white;}
 .btn:hover {
     opacity:0.9;
-    box-shadow:0 0 12px #ff0000,0 0 18px #8b0000;
+    box-shadow:0 0 12px #ff0000, 0 0 18px #8b0000;
 }
 
 /* CART */
@@ -123,8 +118,8 @@ nav {
     background:rgba(20,0,0,0.9); padding:22px;
     border:2px solid #ff0000; border-radius:15px;
 }
-#cart ul { list-style:none; padding:0; }
-#cart li { margin:10px 0; font-size:16px; font-weight:bold; }
+#cart ul {list-style:none; padding:0;}
+#cart li {margin:10px 0; font-size:16px; font-weight:bold;}
 
 /* FOOTER */
 footer {
@@ -132,6 +127,9 @@ footer {
     background:#000; color:#aaa; border-top:2px solid #8b0000;
     font-size:15px;
 }
+
+/* RESPONSIVE */
+@media(max-width:600px){ .product{ width:90%; }}
 </style>
 </head>
 
@@ -151,7 +149,7 @@ footer {
 </nav>
 
 <h1>🎮 Welcome to Faizi Volt</h1>
-<p style="text-align:center; color:#ccc; font-size:18px;">Best Premium Gaming Accessories in Pakistan 🔥</p>
+<p style="text-align:center;color:#ccc;font-size:18px;">Best Premium Gaming Accessories in Pakistan 🔥</p>
 
 <input type="text" id="searchBox" placeholder="Search products..." onkeyup="filterProducts()">
 
@@ -163,70 +161,61 @@ footer {
 <h3>Pro Gaming Mouse</h3>
 <p>Rs. 3500</p>
 <a class="btn add" onclick="addToCart('Pro Gaming Mouse',3500)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Pro Gaming Mouse">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want Pro Gaming Mouse">Buy Now</a>
 </div>
 
 <!-- Premium Mechanical Keyboard -->
 <div class="product" data-name="Premium Mechanical Keyboard">
-<img src="https://images.unsplash.com/photo-1595225476474-87563907a212">
+<img src="https://images.unsplash.com/photos/gaming-setup-with-illuminated-keyboard-and-controller-zpI3Es5q_hQ">
 <h3>Premium Mechanical Keyboard</h3>
 <p>Rs. 7500</p>
 <a class="btn add" onclick="addToCart('Premium Mechanical Keyboard',7500)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Premium Mechanical Keyboard">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want Premium Mechanical Keyboard">Buy Now</a>
 </div>
 
-<!-- Gaming Headphones -->
+<!-- RGB Gaming Headphones -->
 <div class="product" data-name="Gaming Headphones">
 <img src="https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3">
 <h3>RGB Gaming Headphones</h3>
 <p>Rs. 4800</p>
 <a class="btn add" onclick="addToCart('RGB Gaming Headphones',4800)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Headphones">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want RGB Gaming Headphones">Buy Now</a>
 </div>
 
-<!-- Gaming Controller -->
+<!-- Wireless Gaming Controller -->
 <div class="product" data-name="Gaming Controller">
-<img src="https://images.unsplash.com/photos/pete-ross-sample-controller-image-12345">
+<img src="https://images.unsplash.com/photo-1591286114952-4bde5621aac8">
 <h3>Wireless Gaming Controller</h3>
 <p>Rs. 7000</p>
 <a class="btn add" onclick="addToCart('Wireless Gaming Controller',7000)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Wireless Gaming Controller">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want Wireless Gaming Controller">Buy Now</a>
 </div>
 
-<!-- Premium Mousepad -->
+<!-- Premium Gaming Mousepad -->
 <div class="product" data-name="Gaming Mousepad">
-<img src="https://images.unsplash.com/photo-1625816673384-8e2e9fcf5d6e">
+<img src="https://images.unsplash.com/photo-1600267165441-7db8a95f7f2d">
 <h3>Premium Gaming Mousepad</h3>
 <p>Rs. 2000</p>
 <a class="btn add" onclick="addToCart('Premium Gaming Mousepad',2000)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Premium Gaming Mousepad">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want Premium Gaming Mousepad">Buy Now</a>
 </div>
 
-<!-- Gaming Chair -->
+<!-- RGB Headset Stand -->
+<div class="product" data-name="Headset Stand">
+<img src="https://media.istockphoto.com/photos/rgb-headphone-stand-on-dark-background-picture-id1415398729">
+<h3>RGB Headset Stand</h3>
+<p>Rs. 2500</p>
+<a class="btn add" onclick="addToCart('RGB Headset Stand',2500)">Add to Cart</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want RGB Headset Stand">Buy Now</a>
+</div>
+
+<!-- Luxury Gaming Chair -->
 <div class="product" data-name="Gaming Chair">
-<img src="https://images.pexels.com/photos/4207790/pexels-photo-4207790.jpeg">
+<img src="https://images.unsplash.com/photo-1611599535964-6f8a9d4ffb12">
 <h3>Luxury Gaming Chair</h3>
 <p>Rs. 22000</p>
 <a class="btn add" onclick="addToCart('Luxury Gaming Chair',22000)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want Luxury Gaming Chair">Buy Now</a>
-</div>
-
-<!-- RGB Gaming Lights -->
-<div class="product" data-name="RGB Gaming Lights">
-<img src="https://images.unsplash.com/photo-1602526213916-dc9b6f4e1bc3">
-<h3>RGB Gaming Lights</h3>
-<p>Rs. 4200</p>
-<a class="btn add" onclick="addToCart('RGB Gaming Lights',4200)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923000000000?text=I want RGB Gaming Lights">Buy Now</a>
-</div>
-
-<!-- Headset Stand -->
-<div class="product" data-name="Headset Stand">
-<img src="https://images.unsplash.com/photos/headset-and-stand-sample-12345">
-<h3>LED Headset Stand</h3>
-<p>Rs. 2500</p>
-<a class="btn add" onclick="addToCart('LED Headset Stand',2500)">Add to Cart</a>
-<a class="btn buy" href="https://wa.me/923250604099?text=I want LED Headset Stand">Buy Now</a>
+<a class="btn buy" href="https://wa.me/923250604099?text=I want Luxury Gaming Chair">Buy Now</a>
 </div>
 
 </section>
@@ -246,16 +235,11 @@ footer {
 
 <script>
 // Hamburger menu
-function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('show');
-}
+function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('show'); }
 
 // Cart system
 let cart=[];
-function addToCart(name,price){
-    cart.push({name:name,price:price});
-    renderCart();
-}
+function addToCart(name,price){ cart.push({name,name,price}); renderCart(); }
 function renderCart(){
     let ul=document.getElementById("cartItems");
     let totalP=document.getElementById("total");
@@ -278,7 +262,7 @@ function renderCart(){
     totalP.innerText="Total: Rs."+total;
     checkoutBtn.style.display="block";
     let msg="Order:%0A";
-    cart.forEach(item => { msg+=item.name+" - Rs."+item.price+"%0A"; });
+    cart.forEach(item=>{ msg+=item.name+" - Rs."+item.price+"%0A"; });
     checkoutBtn.href="https://wa.me/923250604099?text="+msg;
 }
 
@@ -286,8 +270,7 @@ function renderCart(){
 function filterProducts(){
     let input=document.getElementById("searchBox").value.toLowerCase();
     document.querySelectorAll(".product").forEach(product=>{
-        let name=product.dataset.name.toLowerCase();
-        product.style.display=name.includes(input) ? "block":"none";
+        product.style.display = product.dataset-name.toLowerCase().includes(input) ? "block":"none";
     });
 }
 </script>
