@@ -3,217 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faizan's Store</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Elite Gaming Store</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
 }
 
-body{
-  background:#0f172a;
-  color:#fff;
+header {
+    background: #020617;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* NAVBAR */
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#020617;
-  padding:15px 40px;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38bdf8;
 }
 
-.logo{
-  font-size:24px;
-  color:#22c55e;
-  font-weight:600;
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: none;
 }
 
-.search-box{
-  width:40%;
+.cart {
+    cursor: pointer;
 }
 
-.search-box input{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:none;
+.container {
+    padding: 20px;
 }
 
-/* HERO */
-.hero{
-  padding:60px;
-  text-align:center;
-  background:linear-gradient(135deg,#020617,#1e293b);
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-.hero h1{
-  font-size:42px;
+.product {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-.hero p{
-  color:#94a3b8;
+.product:hover {
+    transform: scale(1.05);
 }
 
-/* CATEGORIES */
-.categories{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  padding:30px;
+.product img {
+    width: 100%;
+    border-radius: 10px;
 }
 
-.cat{
-  background:#020617;
-  padding:15px 25px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.3s;
+button {
+    background: #38bdf8;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
 }
 
-.cat:hover{
-  background:#22c55e;
-  color:#000;
+.ai-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #020617;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  padding:40px;
+#chat-output {
+    height: 150px;
+    overflow-y: auto;
+    font-size: 14px;
 }
 
-.card{
-  background:#020617;
-  padding:20px;
-  border-radius:15px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-}
-
-.card img{
-  width:100%;
-  border-radius:10px;
-}
-
-.card h3{
-  margin:10px 0;
-}
-
-.price{
-  color:#22c55e;
-  font-weight:bold;
-}
-
-.btn{
-  display:block;
-  text-align:center;
-  margin-top:10px;
-  padding:10px;
-  background:#22c55e;
-  color:#000;
-  border-radius:8px;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-  background:#020617;
-  text-align:center;
-  padding:20px;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:15px;
-  border-radius:50%;
-  text-decoration:none;
-  font-size:22px;
-}
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div class="logo">Faizan's Store</div>
-  <div class="search-box">
-    <input type="text" placeholder="Search gaming accessories...">
-  </div>
+<header>
+    <div class="logo">🎮 Elite Gaming</div>
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+    </div>
+    <div class="cart">🛒 Cart (<span id="cart-count">0</span>)</div>
+</header>
+
+<div class="container">
+    <h2>Gaming Gear</h2>
+    <div class="products" id="product-list"></div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Faizan's Gaming Store 🎮</h1>
-  <p>Premium Gaming Accessories for Pro Players</p>
+<!-- AI Chat -->
+<div class="ai-chat">
+    <div id="chat-output"></div>
+    <input type="text" id="chat-input" placeholder="Ask AI..." onkeydown="handleChat(event)">
 </div>
 
-<!-- CATEGORIES -->
-<div class="categories">
-  <div class="cat">Gaming Mouse</div>
-  <div class="cat">Keyboards</div>
-  <div class="cat">Headsets</div>
-  <div class="cat">Mouse Pads</div>
-</div>
+<script>
+const products = [
+    {name: "Gaming Keyboard RGB", price: 50, img: "https://via.placeholder.com/200"},
+    {name: "Gaming Mouse Pro", price: 30, img: "https://via.placeholder.com/200"},
+    {name: "Mechanical Keyboard", price: 80, img: "https://via.placeholder.com/200"},
+    {name: "Wireless Gaming Mouse", price: 60, img: "https://via.placeholder.com/200"}
+];
 
-<!-- PRODUCTS -->
-<div class="products">
+let cart = 0;
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>RGB Gaming Mouse</h3>
-    <p class="price">Rs. 3,999</p>
-    <a class="btn" href="https://wa.me/923250604099">Order on WhatsApp</a>
-  </div>
+function displayProducts(list) {
+    const container = document.getElementById("product-list");
+    container.innerHTML = "";
+    list.forEach((p, index) => {
+        container.innerHTML += `
+        <div class="product">
+            <img src="${p.img}">
+            <h3>${p.name}</h3>
+            <p>$${p.price}</p>
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+        `;
+    });
+}
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Mechanical Keyboard</h3>
-    <p class="price">Rs. 8,499</p>
-    <a class="btn" href="https://wa.me/923250604099">Order on WhatsApp</a>
-  </div>
+function addToCart() {
+    cart++;
+    document.getElementById("cart-count").innerText = cart;
+}
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Gaming Headset</h3>
-    <p class="price">Rs. 5,999</p>
-    <a class="btn" href="https://wa.me/923250604099">Order on WhatsApp</a>
-  </div>
+function searchProducts() {
+    const value = document.getElementById("search").value.toLowerCase();
+    const filtered = products.filter(p => p.name.toLowerCase().includes(value));
+    displayProducts(filtered);
+}
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x200">
-    <h3>Large Mouse Pad</h3>
-    <p class="price">Rs. 1,499</p>
-    <a class="btn" href="https://wa.me/923250604099">Order on WhatsApp</a>
-  </div>
+// AI Chat (Basic Simulation)
+function handleChat(e) {
+    if (e.key === "Enter") {
+        let input = document.getElementById("chat-input").value;
+        let output = document.getElementById("chat-output");
 
-</div>
+        output.innerHTML += `<p><b>You:</b> ${input}</p>`;
 
-<!-- FOOTER -->
-<footer>
-  <p>Contact on WhatsApp: 03250604099</p>
-  <p>© 2026 Faizan's Store - All Rights Reserved</p>
-</footer>
+        let response = "I recommend our RGB keyboards and pro gaming mice!";
+        if (input.toLowerCase().includes("mouse")) {
+            response = "Check out our high precision gaming mice!";
+        }
 
-<!-- FLOATING WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/923250604099">💬</a>
+        output.innerHTML += `<p><b>AI:</b> ${response}</p>`;
+        document.getElementById("chat-input").value = "";
+    }
+}
+
+displayProducts(products);
+</script>
 
 </body>
 </html>
