@@ -8,16 +8,21 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #0d1117;
     color: white;
+    scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* HERO */
 header {
     text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #0d1117, #111827);
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 2s ease-in;
 }
 
 header img {
@@ -25,31 +30,33 @@ header img {
 }
 
 header h1 {
-    font-size: 40px;
-    margin: 10px 0;
+    font-size: 45px;
     color: #4da6ff;
 }
 
 header p {
-    font-size: 18px;
+    font-size: 20px;
     color: #ccc;
 }
 
-.buttons {
-    margin-top: 20px;
-}
-
+/* BUTTONS */
 .buttons button {
-    padding: 12px 20px;
-    margin: 5px;
+    padding: 12px 22px;
+    margin: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .apply {
     background: #4da6ff;
     color: white;
+}
+
+.apply:hover {
+    background: #1f6feb;
 }
 
 .contact {
@@ -64,17 +71,13 @@ header p {
     justify-content: space-around;
     background: #111827;
     padding: 20px;
-    text-align: center;
-}
-
-.quick-info div {
-    margin: 10px;
 }
 
 /* SECTIONS */
 section {
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
+    animation: fadeUp 1.5s ease;
 }
 
 h2 {
@@ -94,6 +97,28 @@ h2 {
     padding: 20px;
     border-radius: 10px;
     width: 250px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* FORM */
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #4da6ff;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 /* GALLERY */
@@ -106,9 +131,18 @@ h2 {
 /* FOOTER */
 footer {
     background: #111827;
-    text-align: center;
     padding: 20px;
-    margin-top: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 </style>
 
@@ -120,10 +154,14 @@ footer {
     <img src="logo.png" alt="Logo">
     <h1>Shaping Future Leaders of Pakistan 🇵🇰</h1>
     <p>Admissions Open for 2026 – Matric to Intermediate</p>
-    
+
     <div class="buttons">
-        <button class="apply">Apply Now</button>
-        <button class="contact">Contact Us</button>
+        <a href="https://wa.me/923017159160" target="_blank">
+            <button class="apply">Apply via WhatsApp</button>
+        </a>
+        <a href="#form">
+            <button class="contact">Apply Online</button>
+        </a>
     </div>
 </header>
 
@@ -138,7 +176,7 @@ footer {
 <!-- ABOUT -->
 <section>
     <h2>About Us</h2>
-    <p>SIAC Students' Inn is committed to providing quality education with modern and Islamic values. We aim to build strong character and academic excellence.</p>
+    <p>SIAC Students' Inn provides quality education with modern and Islamic values, focusing on discipline and academic excellence.</p>
 </section>
 
 <!-- WHY CHOOSE US -->
@@ -157,56 +195,74 @@ footer {
 <section>
     <h2>Programs</h2>
     <div class="cards">
-        <div class="card">📘 Matric</div>
-        <div class="card">🧪 FSc</div>
-        <div class="card">💻 ICS</div>
-        <div class="card">📊 ICom</div>
+        <div class="card">Matric</div>
+        <div class="card">FSc</div>
+        <div class="card">ICS</div>
+        <div class="card">ICom</div>
     </div>
 </section>
 
-<!-- ADMISSIONS -->
-<section>
-    <h2>Admissions</h2>
-    <p>Follow these simple steps:</p>
-    <p>1. Fill Admission Form</p>
-    <p>2. Test / Interview</p>
-    <p>3. Confirmation</p>
-    <button class="apply">Apply for Admission</button>
+<!-- ADMISSION FORM -->
+<section id="form">
+    <h2>Apply Online</h2>
+    <form onsubmit="sendToWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="text" id="class" placeholder="Class (Matric/FSc etc)" required><br>
+        <input type="text" id="phone" placeholder="Phone Number" required><br>
+        <textarea id="msg" placeholder="Message"></textarea><br>
+        <button type="submit">Submit Application</button>
+    </form>
 </section>
 
 <!-- GALLERY -->
 <section>
     <h2>Gallery</h2>
     <div class="gallery">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
-        <img src="https://via.placeholder.com/250">
+        <img src="gallery1.jpg">
+        <img src="gallery2.jpg">
+        <img src="gallery3.jpg">
     </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section>
     <h2>Testimonials</h2>
-    <p>"Best institute in Faisalabad. Highly recommended!"</p>
-    <p>"Great teachers and environment for students."</p>
+    <p>"Best institute in Faisalabad!"</p>
+    <p>"Highly qualified staff and great environment."</p>
 </section>
 
 <!-- CONTACT -->
 <section>
-    <h2>Contact Us</h2>
+    <h2>Contact</h2>
     <p>📞 03017159160</p>
     <p>📍 Plot 54, Block A Ghulam Muhammad Abad, Faisalabad</p>
 
     <iframe 
-        src="https://maps.google.com/maps?q=Ghulam%20Muhammad%20Abad%20Faisalabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        width="80%" height="300" style="border:0;">
-    </iframe>
+    src="https://maps.google.com/maps?q=Ghulam%20Muhammad%20Abad%20Faisalabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    width="80%" height="300"></iframe>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>© 2026 SIAC Students' Inn | All Rights Reserved</p>
+    <p>© 2026 SIAC Students' Inn</p>
 </footer>
+
+<!-- JS FOR WHATSAPP FORM -->
+<script>
+function sendToWhatsApp() {
+    let name = document.getElementById("name").value;
+    let clas = document.getElementById("class").value;
+    let phone = document.getElementById("phone").value;
+    let msg = document.getElementById("msg").value;
+
+    let url = "https://wa.me/923017159160?text="
+        + "Name: " + name + "%0a"
+        + "Class: " + clas + "%0a"
+        + "Phone: " + phone + "%0a"
+        + "Message: " + msg;
+
+    window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
