@@ -1,35 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ABC School Faisalabad</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIAC Students' Inn</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d1117;
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0d1117, #111827);
+}
+
+header img {
+    width: 120px;
+}
+
+header h1 {
+    font-size: 40px;
+    margin: 10px 0;
+    color: #4da6ff;
+}
+
+header p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.apply {
+    background: #4da6ff;
+    color: white;
+}
+
+.contact {
+    background: white;
+    color: black;
+}
+
+/* QUICK INFO */
+.quick-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background: #111827;
+    padding: 20px;
+    text-align: center;
+}
+
+.quick-info div {
+    margin: 10px;
+}
+
+/* SECTIONS */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #4da6ff;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: #161b22;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+/* GALLERY */
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #111827;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+</style>
+
 </head>
 <body>
 
+<!-- HERO -->
 <header>
-  <h1>ABC School & College</h1>
-  <p>Admissions Open 2026</p>
-  <button>Apply Now</button>
+    <img src="logo.png" alt="Logo">
+    <h1>Shaping Future Leaders of Pakistan 🇵🇰</h1>
+    <p>Admissions Open for 2026 – Matric to Intermediate</p>
+    
+    <div class="buttons">
+        <button class="apply">Apply Now</button>
+        <button class="contact">Contact Us</button>
+    </div>
 </header>
 
+<!-- QUICK INFO -->
+<div class="quick-info">
+    <div>📍 GM Abad Near Attock Petrol Pump, Faisalabad</div>
+    <div>📅 Admissions Open 2026</div>
+    <div>🏫 Classes: Matric to Intermediate</div>
+    <div>☎ 03017159160</div>
+</div>
+
+<!-- ABOUT -->
 <section>
-  <h2>Why Choose Us</h2>
-  <ul>
-    <li>Experienced Teachers</li>
-    <li>Modern Labs</li>
-    <li>Islamic Education</li>
-  </ul>
+    <h2>About Us</h2>
+    <p>SIAC Students' Inn is committed to providing quality education with modern and Islamic values. We aim to build strong character and academic excellence.</p>
 </section>
 
+<!-- WHY CHOOSE US -->
 <section>
-  <h2>Programs</h2>
-  <p>Play Group to FSc</p>
+    <h2>Why Choose Us</h2>
+    <div class="cards">
+        <div class="card">✔ Experienced Teachers</div>
+        <div class="card">✔ Modern Classrooms</div>
+        <div class="card">✔ Computer Labs</div>
+        <div class="card">✔ Islamic Education</div>
+        <div class="card">✔ Extra Activities</div>
+    </div>
 </section>
 
+<!-- PROGRAMS -->
 <section>
-  <h2>Contact</h2>
-  <p>Phone: 0300-1234567</p>
+    <h2>Programs</h2>
+    <div class="cards">
+        <div class="card">📘 Matric</div>
+        <div class="card">🧪 FSc</div>
+        <div class="card">💻 ICS</div>
+        <div class="card">📊 ICom</div>
+    </div>
 </section>
+
+<!-- ADMISSIONS -->
+<section>
+    <h2>Admissions</h2>
+    <p>Follow these simple steps:</p>
+    <p>1. Fill Admission Form</p>
+    <p>2. Test / Interview</p>
+    <p>3. Confirmation</p>
+    <button class="apply">Apply for Admission</button>
+</section>
+
+<!-- GALLERY -->
+<section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+        <img src="https://via.placeholder.com/250">
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+    <h2>Testimonials</h2>
+    <p>"Best institute in Faisalabad. Highly recommended!"</p>
+    <p>"Great teachers and environment for students."</p>
+</section>
+
+<!-- CONTACT -->
+<section>
+    <h2>Contact Us</h2>
+    <p>📞 03017159160</p>
+    <p>📍 Plot 54, Block A Ghulam Muhammad Abad, Faisalabad</p>
+
+    <iframe 
+        src="https://maps.google.com/maps?q=Ghulam%20Muhammad%20Abad%20Faisalabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="80%" height="300" style="border:0;">
+    </iframe>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 SIAC Students' Inn | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
